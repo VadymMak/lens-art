@@ -11,6 +11,8 @@ import type {
   DaySchedule,
   MenuCategory,
   ImageMap,
+  PortfolioCategory,
+  PricingPlan,
 } from './types';
 
 // Switch to true when local /images/*.webp files are ready
@@ -22,10 +24,10 @@ export const USE_LOCAL_IMAGES = false;
 export const IMAGES: ImageMap = {
   hero: USE_LOCAL_IMAGES
     ? '/images/hero.webp'
-    : 'https://images.unsplash.com/photo-1625047509252-ab38fb5c7343?w=1600&q=80',
+    : 'https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=1600&q=80',
   about: USE_LOCAL_IMAGES
     ? '/images/about.webp'
-    : 'https://images.unsplash.com/photo-1606577924006-27d39b132ae2?w=800&q=80',
+    : 'https://images.unsplash.com/photo-1554048612-b6a482bc67e5?w=800&h=600&fit=crop',
   gallery: USE_LOCAL_IMAGES
     ? [
         '/images/gallery/01.webp',
@@ -35,11 +37,11 @@ export const IMAGES: ImageMap = {
         '/images/gallery/05.webp',
       ]
     : [
-        'https://images.unsplash.com/photo-1586768702658-caf8a84e8b8e?w=800&q=80',
-        'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
-        'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&q=80',
-        'https://images.unsplash.com/photo-1611566026373-c6c8da0ea861?w=800&q=80',
-        'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&q=80',
+        'https://images.unsplash.com/photo-1471341971476-ae15ff5dd4ea?w=600&h=800&fit=crop',
+        'https://images.unsplash.com/photo-1554048612-b6a482bc67e5?w=500&h=350&fit=crop',
+        'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=500&h=350&fit=crop',
+        'https://images.unsplash.com/photo-1554080353-a576cf803bda?w=500&h=350&fit=crop',
+        'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=500&h=350&fit=crop',
       ],
 };
 
@@ -47,12 +49,10 @@ export const IMAGES: ImageMap = {
 // NAVIGATION
 // ---------------------------------------------------------------------------
 export const NAV_ITEMS: NavItem[] = [
-  { label: 'Domov', href: '#hero' },
-  { label: 'Služby', href: '#services' },
-  { label: 'Prečo my', href: '#why-us' },
-  { label: 'Galéria', href: '#gallery' },
+  { label: 'Portfolio', href: '#portfolio' },
+  { label: 'Služby', href: '#why-us' },
+  { label: 'Cenník', href: '#cennik' },
   { label: 'Recenzie', href: '#reviews' },
-  { label: 'Rezervácia', href: '#booking' },
   { label: 'Kontakt', href: '#contact' },
 ];
 
@@ -60,10 +60,10 @@ export const NAV_ITEMS: NavItem[] = [
 // STATS
 // ---------------------------------------------------------------------------
 export const STATS: StatItem[] = [
-  { value: '15+', label: 'Rokov skúseností' },
-  { value: '5000+', label: 'Spokojných zákazníkov' },
-  { value: '98%', label: 'Spokojnosť' },
-  { value: '24h', label: 'Expresné opravy' },
+  { value: '500+', label: 'fotení' },
+  { value: '8', label: 'rokov skúseností' },
+  { value: '4.9★', label: 'hodnotenie' },
+  { value: '48h', label: 'dodanie fotiek' },
 ];
 
 // ---------------------------------------------------------------------------
@@ -72,173 +72,128 @@ export const STATS: StatItem[] = [
 export const WHY_ITEMS: WhyItem[] = [
   {
     id: '1',
-    icon: '🔧',
-    title: 'Skúsení mechanici',
-    description: 'Certifikovaní odborníci s dlhoročnou praxou na všetkých značkách vozidiel.',
+    icon: '📸',
+    title: 'Profesionálne vybavenie',
+    description: 'Canon R5, Sony A7IV, Profoto osvetlenie — najlepšia technika pre dokonalé výsledky.',
   },
   {
     id: '2',
-    icon: '⚡',
-    title: 'Rýchly servis',
-    description: 'Väčšinu opráv zvládneme do 24 hodín. Expresné opravy na počkanie.',
+    icon: '🎨',
+    title: 'Retušovanie v cene',
+    description: 'Každá fotka prejde profesionálnym retušom. Žiadne skryté poplatky za úpravy.',
   },
   {
     id: '3',
-    icon: '💰',
-    title: 'Férové ceny',
-    description: 'Transparentná cenová politika bez skrytých poplatkov. Cenová ponuka zadarmo.',
+    icon: '⚡',
+    title: 'Rýchle dodanie',
+    description: 'Hotové fotky do 48 hodín v online galérii. Vždy včas, bez čakania.',
   },
   {
     id: '4',
-    icon: '🛡️',
-    title: 'Záruka na prácu',
-    description: 'Na všetky opravy poskytujeme 12-mesačnú záruku. Vaša spokojnosť je priorita.',
+    icon: '💯',
+    title: 'Spokojnosť garantovaná',
+    description: 'Ak nie ste spokojní, fotografujeme znova zdarma. Vaša spokojnosť je priorita.',
   },
 ];
 
 // ---------------------------------------------------------------------------
-// SERVICE CATEGORIES (templateType: 'services')
+// PORTFOLIO CATEGORIES (templateType: 'portfolio')
 // ---------------------------------------------------------------------------
-export const SERVICE_CATEGORIES: ServiceCategory[] = [
+export const PORTFOLIO_CATEGORIES: PortfolioCategory[] = [
   {
-    id: 'diagnostics',
-    name: 'Diagnostika',
-    items: [
-      {
-        id: 'd1',
-        name: 'Počítačová diagnostika',
-        description: 'Kompletná diagnostika elektroniky vozidla',
-        price: 'od 30 €',
-        icon: '💻',
-      },
-      {
-        id: 'd2',
-        name: 'Geometria kolies',
-        description: 'Nastavenie geometrie náprav pomocou 3D zariadenia',
-        price: 'od 40 €',
-        icon: '📐',
-      },
-      {
-        id: 'd3',
-        name: 'Kontrola pred kúpou',
-        description: 'Detailná prehliadka vozidla pred nákupom',
-        price: 'od 60 €',
-        icon: '🔍',
-      },
+    id: 'svadby',
+    name: 'Svadby',
+    images: [
+      { id: 's1', src: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=600&h=400&fit=crop', alt: 'Svadobné fotenie 1' },
+      { id: 's2', src: 'https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=600&h=400&fit=crop', alt: 'Svadobné fotenie 2' },
+      { id: 's3', src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&h=400&fit=crop', alt: 'Svadobné fotenie 3' },
+      { id: 's4', src: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=600&h=400&fit=crop', alt: 'Svadobné fotenie 4' },
+      { id: 's5', src: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=600&h=400&fit=crop', alt: 'Svadobné fotenie 5' },
+      { id: 's6', src: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600&h=400&fit=crop', alt: 'Svadobné fotenie 6' },
     ],
   },
   {
-    id: 'repairs',
-    name: 'Opravy',
-    items: [
-      {
-        id: 'r1',
-        name: 'Oprava motora',
-        description: 'Generálna oprava, výmena tesnenia, remont',
-        price: 'od 200 €',
-        icon: '🔩',
-      },
-      {
-        id: 'r2',
-        name: 'Oprava prevodovky',
-        description: 'Manuálne aj automatické prevodovky',
-        price: 'od 150 €',
-        icon: '⚙️',
-      },
-      {
-        id: 'r3',
-        name: 'Oprava bŕzd',
-        description: 'Výmena platničiek, diskov, brzdových strmeňov',
-        price: 'od 50 €',
-        icon: '🛑',
-      },
+    id: 'portraty',
+    name: 'Portréty',
+    images: [
+      { id: 'p1', src: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&h=400&fit=crop', alt: 'Portrét 1' },
+      { id: 'p2', src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop', alt: 'Portrét 2' },
+      { id: 'p3', src: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&h=400&fit=crop', alt: 'Portrét 3' },
+      { id: 'p4', src: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&h=400&fit=crop', alt: 'Portrét 4' },
     ],
   },
   {
-    id: 'maintenance',
-    name: 'Údržba',
-    items: [
-      {
-        id: 'm1',
-        name: 'Výmena oleja',
-        description: 'Motorový olej + filter, reset servisného intervalu',
-        price: 'od 35 €',
-        icon: '🛢️',
-      },
-      {
-        id: 'm2',
-        name: 'Výmena pneumatík',
-        description: 'Prezutie, vyváženie, uskladnenie pneumatík',
-        price: 'od 10 €/kus',
-        icon: '🔄',
-      },
-      {
-        id: 'm3',
-        name: 'Klimatizácia',
-        description: 'Plnenie, dezinfekcia, oprava klimatizácie',
-        price: 'od 45 €',
-        icon: '❄️',
-      },
+    id: 'produktove',
+    name: 'Produktové',
+    images: [
+      { id: 'pr1', src: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&h=400&fit=crop', alt: 'Produktové fotenie 1' },
+      { id: 'pr2', src: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=400&fit=crop', alt: 'Produktové fotenie 2' },
+      { id: 'pr3', src: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&h=400&fit=crop', alt: 'Produktové fotenie 3' },
+      { id: 'pr4', src: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=600&h=400&fit=crop', alt: 'Produktové fotenie 4' },
+    ],
+  },
+  {
+    id: 'eventy',
+    name: 'Eventy',
+    images: [
+      { id: 'e1', src: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=400&fit=crop', alt: 'Event 1' },
+      { id: 'e2', src: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&h=400&fit=crop', alt: 'Event 2' },
+      { id: 'e3', src: 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=600&h=400&fit=crop', alt: 'Event 3' },
+      { id: 'e4', src: 'https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=600&h=400&fit=crop', alt: 'Event 4' },
     ],
   },
 ];
 
 // ---------------------------------------------------------------------------
-// SCHEDULE (templateType: 'schedule')
+// SERVICE CATEGORIES (templateType: 'services') — not used for portfolio
 // ---------------------------------------------------------------------------
-export const SCHEDULE: DaySchedule[] = [
-  {
-    day: 'Pondelok',
-    entries: [
-      { time: '08:00', name: 'Ranný servis', instructor: 'Martin K.' },
-      { time: '10:00', name: 'Diagnostika', instructor: 'Jozef P.' },
-      { time: '14:00', name: 'Odpoludňajší servis', instructor: 'Martin K.' },
-    ],
-  },
-  {
-    day: 'Utorok',
-    entries: [
-      { time: '08:00', name: 'Oprava bŕzd', instructor: 'Jozef P.' },
-      { time: '11:00', name: 'Výmena oleja', instructor: 'Peter S.' },
-      { time: '15:00', name: 'Geometria', instructor: 'Martin K.' },
-    ],
-  },
-  {
-    day: 'Streda',
-    entries: [
-      { time: '08:00', name: 'Ranný servis', instructor: 'Peter S.' },
-      { time: '12:00', name: 'Klimatizácia', instructor: 'Jozef P.' },
-      { time: '16:00', name: 'Expresný servis', instructor: 'Martin K.' },
-    ],
-  },
-];
+export const SERVICE_CATEGORIES: ServiceCategory[] = [];
 
 // ---------------------------------------------------------------------------
-// MENU CATEGORIES (templateType: 'menu')
+// SCHEDULE (templateType: 'schedule') — not used for portfolio
 // ---------------------------------------------------------------------------
-export const MENU_CATEGORIES: MenuCategory[] = [
+export const SCHEDULE: DaySchedule[] = [];
+
+// ---------------------------------------------------------------------------
+// MENU CATEGORIES (templateType: 'menu') — not used for portfolio
+// ---------------------------------------------------------------------------
+export const MENU_CATEGORIES: MenuCategory[] = [];
+
+// ---------------------------------------------------------------------------
+// PRICING PLANS (templateType: 'portfolio')
+// ---------------------------------------------------------------------------
+export const PRICING_PLANS: PricingPlan[] = [
   {
-    id: 'starters',
-    name: 'Predjedlá',
-    items: [
-      { id: 's1', name: 'Cesnaková polievka', description: 'Tradičná slovenská cesnaková polievka s krutónmi', price: '4,50 €' },
-      { id: 's2', name: 'Šalát Caesar', description: 'Rímsky šalát, parmezán, krutóny, Caesar dresing', price: '6,90 €' },
+    id: 'mini',
+    name: 'Mini',
+    price: '€149',
+    features: [
+      '1 hodina fotenia',
+      '20 retušovaných fotiek',
+      'Online galéria',
     ],
   },
   {
-    id: 'mains',
-    name: 'Hlavné jedlá',
-    items: [
-      { id: 'm1', name: 'Svíčková na smotane', description: 'Hovädzí sviečok, smotanová omáčka, knedľa', price: '13,90 €' },
-      { id: 'm2', name: 'Grilovaný losos', description: 'Atlantický losos, zelenina, citronové maslo', price: '15,50 €' },
+    id: 'standard',
+    name: 'Štandard',
+    price: '€299',
+    highlighted: true,
+    features: [
+      '2 hodiny fotenia',
+      '50 retušovaných fotiek',
+      'Online galéria',
+      '5 printov 20×30 cm',
     ],
   },
   {
-    id: 'drinks',
-    name: 'Nápoje',
-    items: [
-      { id: 'd1', name: 'Domáca limonáda', description: 'Čerstvá limonáda s mätou alebo jahodami', price: '3,20 €' },
-      { id: 'd2', name: 'Espresso', description: 'Dvojitý taliansky espresso', price: '1,80 €' },
+    id: 'premium',
+    name: 'Premium',
+    price: '€499',
+    features: [
+      '4 hodiny fotenia',
+      '100+ retušovaných fotiek',
+      'Online galéria',
+      'Fotoalbum 30×30 cm',
     ],
   },
 ];
@@ -249,35 +204,35 @@ export const MENU_CATEGORIES: MenuCategory[] = [
 export const REVIEWS: Review[] = [
   {
     id: '1',
-    name: 'Michal Horváth',
-    initial: 'M',
-    text: 'Skvelý servis! Auto opravili za jeden deň a cena bola veľmi férová. Určite sa vrátim.',
+    name: 'Lucia M.',
+    initial: 'L',
+    text: 'Najkrajšie svadobné fotky aké sme mohli dostať. Fotograf bol diskrétny, priateľský a zachytil každý moment dokonale.',
     rating: 5,
-    detail: 'Výmena spojky, Škoda Octavia',
+    detail: 'Svadba',
   },
   {
     id: '2',
-    name: 'Jana Kováčová',
-    initial: 'J',
-    text: 'Profesionálny prístup, priateľský personál. Diagnostiku urobili rýchlo a presne. Odporúčam!',
+    name: 'Peter K.',
+    initial: 'P',
+    text: 'Profesionálny prístup, fotky boli hotové do 24 hodín. Naši kolegovia boli nadšení z výsledkov firemného eventu.',
     rating: 5,
-    detail: 'Diagnostika, Volkswagen Golf',
+    detail: 'Firemný event',
   },
   {
     id: '3',
-    name: 'Tomáš Novák',
-    initial: 'T',
-    text: 'Prezutie pneumatík vykonali za 30 minút. Cena rozumná, práca kvalitná. Budem chodiť pravidelne.',
+    name: 'Jana S.',
+    initial: 'J',
+    text: 'S deťmi to nie je jednoduché ale fotograf bol trpezlivý a výsledky sú úžasné. Rodinné fotenie sa podarilo na výbornú.',
     rating: 5,
-    detail: 'Výmena pneumatík, BMW 3',
+    detail: 'Rodinné fotenie',
   },
   {
     id: '4',
-    name: 'Lucia Szabóová',
-    initial: 'L',
-    text: 'Kontrola pred kúpou ojazdenia mi ušetrila veľa starostí. Odhalili skryté závady. Ďakujem!',
+    name: 'Marek H.',
+    initial: 'M',
+    text: 'Naše produkty konečne vyzerajú ako z katalógu. Spolupráca bola príjemná a rýchla. Jednoznačne odporúčam.',
     rating: 5,
-    detail: 'Kontrola pred kúpou, Toyota Corolla',
+    detail: 'Produktové fotky',
   },
 ];
 
@@ -288,22 +243,22 @@ export const CONTACT_ITEMS: ContactItem[] = [
   {
     icon: '📍',
     title: 'Adresa',
-    lines: ['Priemyselná 15', '010 01 Žilina'],
+    lines: ['Hlavná 15', '911 01 Trenčín'],
   },
   {
     icon: '📞',
     title: 'Telefón',
-    lines: ['+421 32 123 4567', '+421 903 456 789'],
+    lines: ['+421 901 234 567'],
   },
   {
     icon: '✉️',
     title: 'Email',
-    lines: ['info@autofix.sk', 'servis@autofix.sk'],
+    lines: ['info@lensart.sk'],
   },
   {
     icon: '🕐',
     title: 'Otváracie hodiny',
-    lines: ['Po–Pia: 07:30–17:30', 'So: 08:00–12:00'],
+    lines: ['Po–Pi: 9:00–18:00', 'So: podľa dohody'],
   },
 ];
 
@@ -313,33 +268,33 @@ export const CONTACT_ITEMS: ContactItem[] = [
 export const FAQ_ITEMS: FaqItem[] = [
   {
     id: '1',
-    question: 'Ako dlho trvá bežná oprava?',
+    question: 'Ako prebieha fotenie?',
     answer:
-      'Väčšina bežných opráv (výmena oleja, bŕzd, pneumatík) sa vykonáva do 1–2 hodín. Väčšie opravy motora alebo prevodovky môžu trvať 1–3 dni. Presný čas vám povieme pri prevzatí vozidla.',
+      'Dohodneme si termín, miesto a štýl fotenia. Fotenie trvá 1–4 hodiny podľa zvoleného balíka. Poradím vám s oblečením aj lokáciou.',
   },
   {
     id: '2',
-    question: 'Poskytujete náhradné vozidlo počas opravy?',
+    question: 'Kedy dostanem fotky?',
     answer:
-      'Áno, pri opravách trvajúcich dlhšie ako 1 deň vám poskytneme náhradné vozidlo zdarma. Stačí si to dopredu rezervovať.',
+      'Hotové retušované fotky dostanete do 48 hodín v súkromnej online galérii. Printy a fotoalbum doručíme do 7 pracovných dní.',
   },
   {
     id: '3',
-    question: 'Aké platobné metódy akceptujete?',
+    question: 'Môžem si vybrať fotky na retušovanie?',
     answer:
-      'Akceptujeme hotovosť, platobné karty (Visa, Mastercard) aj bankový prevod. Na väčšie opravy je možné dohodnúť splátkový plán.',
+      'Áno, po fotení vám pošlem náhľady všetkých snímok a vy si vyberiete tie, ktoré chcete retušovať v rámci vášho balíka.',
   },
   {
     id: '4',
-    question: 'Opravujete všetky značky áut?',
+    question: 'Fotografujete aj v exteriéri?',
     answer:
-      'Áno, opravujeme všetky bežné európske, japonské aj americké značky. Máme skúsenosti s vozidlami od Škody, VW, BMW, Mercedes, Toyota, Ford a mnohých ďalších.',
+      'Áno, fotografujem kdekoľvek — ateliér, príroda, mesto, vaša firma alebo domov. Lokáciu si dohodneme podľa vašich predstáv.',
   },
   {
     id: '5',
-    question: 'Je diagnostika spoplatnená?',
+    question: 'Čo ak prší v deň fotenia?',
     answer:
-      'Základná diagnostika je spoplatnená od 30 €. Pri následnom vykonaní opravy u nás vám poplatok za diagnostiku odčítame z celkovej ceny.',
+      'Externé fotenie v prípade nepriaznivého počasia presunieme na náhradný termín zdarma. Vnútorné fotenie prebieha za každého počasia.',
   },
 ];
 
@@ -347,31 +302,32 @@ export const FAQ_ITEMS: FaqItem[] = [
 // CHAT CONFIG
 // ---------------------------------------------------------------------------
 export const CHAT_CONFIG: ChatConfig = {
-  greeting: 'Dobrý deň! Som tu, aby som vám pomohol. Ako vám môžem pomôcť?',
+  greeting: 'Dobrý deň! Som asistent LensArt. Ako vám môžem pomôcť?',
   quickReplies: [
     {
       id: '1',
-      label: '📋 Cenník',
+      label: 'Cenník služieb',
       response:
-        'Naše ceny začínajú od 30 € za diagnostiku, od 35 € za výmenu oleja a od 50 € za opravu bŕzd. Pre presnú cenovú ponuku nás kontaktujte.',
+        'Naše balíky začínajú od €149 (Mini — 1 hodina, 20 fotiek), €299 (Štandard — 2 hodiny, 50 fotiek) a €499 (Premium — 4 hodiny, 100+ fotiek). Všetky ceny zahŕňajú profesionálny retuš a online galériu.',
     },
     {
       id: '2',
-      label: '🕐 Otváracie hodiny',
-      response: 'Sme otvorení Po–Pia od 07:30 do 17:30 a v Sobotu od 08:00 do 12:00. V nedeľu zatvorené.',
+      label: 'Objednať fotenie',
+      response:
+        'Skvelá voľba! Vyplňte prosím rezervačný formulár nižšie na stránke alebo nás kontaktujte na +421 901 234 567. Ozveme sa vám do 24 hodín.',
     },
     {
       id: '3',
-      label: '📍 Kde sa nachádzate?',
-      response: 'Nájdete nás na adrese Priemyselná 15, 010 01 Žilina. Sme 5 minút od diaľnice D1.',
-    },
-    {
-      id: '4',
-      label: '📅 Rezervácia',
+      label: 'Ukážky prác',
       response:
-        'Rezerváciu môžete urobiť cez formulár na tejto stránke, telefonicky na +421 32 123 4567 alebo nám napíšte e-mail.',
+        'Naše portfolio nájdete priamo na tejto stránke — svadby, portréty, produktové fotky aj eventy. Pozrite si jednotlivé kategórie vyššie.',
     },
   ],
   fallbackResponse:
-    'Ďakujeme za správu! Pre rýchlejšiu odpoveď nás kontaktujte telefonicky na +421 32 123 4567 alebo e-mailom na info@autofix.sk.',
+    'Ďakujem za správu. Ozvem sa vám čo najskôr. Prípadne nás kontaktujte na info@lensart.sk alebo +421 901 234 567.',
 };
+
+// ---------------------------------------------------------------------------
+// Unused gallery images type — kept for GallerySection compatibility
+// ---------------------------------------------------------------------------
+export const GALLERY_IMAGES: GalleryImage[] = [];

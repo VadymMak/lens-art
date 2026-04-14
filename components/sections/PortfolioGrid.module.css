@@ -2,6 +2,44 @@
   scroll-margin-top: var(--header-h);
 }
 
+/* Category tabs */
+.tabs {
+  display: flex;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+  margin-bottom: var(--spacing-md);
+}
+
+.tab {
+  padding: 0.5rem 1.25rem;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition), color var(--transition), background var(--transition);
+  letter-spacing: 0.04em;
+}
+
+.tab:hover {
+  border-color: var(--primary);
+  color: var(--text);
+}
+
+.tabActive {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: var(--bg);
+  font-weight: 600;
+}
+
+/* Featured first item spans 2 columns */
+.itemFeatured {
+  grid-column: span 2;
+  grid-row: span 2;
+  aspect-ratio: auto;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -15,12 +53,6 @@
   border: none;
   background: var(--card);
   cursor: pointer;
-}
-
-.item:nth-child(1) {
-  grid-column: span 2;
-  grid-row: span 2;
-  aspect-ratio: auto;
 }
 
 .overlay {
@@ -90,7 +122,7 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .item:nth-child(1) {
+  .itemFeatured {
     grid-column: span 1;
     grid-row: span 1;
     aspect-ratio: 4 / 3;

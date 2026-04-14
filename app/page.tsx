@@ -16,6 +16,7 @@ import ServicesSection from '@/components/sections/ServicesSection';
 import ScheduleSection from '@/components/sections/ScheduleSection';
 import MenuSection from '@/components/sections/MenuSection';
 import PortfolioGrid from '@/components/sections/PortfolioGrid';
+import PricingSection from '@/components/sections/PricingSection';
 
 export default function Home() {
   const { templateType } = SITE_CONFIG;
@@ -32,6 +33,7 @@ export default function Home() {
         {templateType === 'schedule' && <ScheduleSection />}
         {templateType === 'menu' && <MenuSection />}
         {templateType === 'portfolio' && <PortfolioGrid />}
+        {templateType === 'portfolio' && <PricingSection />}
 
         <WhyUsSection />
         <GallerySection />

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { SERVICE_CATEGORIES } from '@/lib/constants';
+import { SERVICE_CATEGORIES, PRICING_PLANS } from '@/lib/constants';
 import styles from './BookingSection.module.css';
 
 interface FormData {
@@ -23,6 +23,10 @@ export default function BookingSection() {
   const [submitted, setSubmitted] = useState(false);
 
   const allServices = SERVICE_CATEGORIES.flatMap((cat) => cat.items);
+  const serviceOptions =
+    allServices.length > 0
+      ? allServices.map((s) => ({ id: s.id, name: s.name }))
+      : PRICING_PLANS.map((p) => ({ id: p.id, name: `${p.name} — ${p.price}` }));
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -42,16 +46,16 @@ export default function BookingSection() {
         <div className={styles.layout}>
           <div className={styles.info}>
             <h2 className="section-title">
-              Rezervujte si <span>termín</span>
+              Objednajte si <span>fotenie</span>
             </h2>
             <p className="section-subtitle">
-              Vyplňte formulár a my vás kontaktujeme s potvrdením do 24 hodín.
+              Vyplňte formulár a ozvem sa vám do 24 hodín s potvrdením termínu.
             </p>
             <ul className={styles.benefits}>
-              <li>✅ Rýchla odpoveď do 24 hodín</li>
-              <li>✅ Bez záväzkov — rezervácia je bezplatná</li>
-              <li>✅ Bezplatná cenová ponuka</li>
-              <li>✅ Flexibilné termíny</li>
+              <li>✅ Odpoveď do 24 hodín</li>
+              <li>✅ Rezervácia je bezplatná</li>
+              <li>✅ Retuš vždy v cene</li>
+              <li>✅ Flexibilné termíny aj lokácie</li>
             </ul>
           </div>
 
@@ -59,10 +63,10 @@ export default function BookingSection() {
             {submitted ? (
               <div className="success-message">
                 <div className="success-icon">✅</div>
-                <h3>Rezervácia odoslaná!</h3>
-                <p>Kontaktujeme vás čo najskôr pre potvrdenie termínu.</p>
+                <h3>Objednávka odoslaná!</h3>
+                <p>Ozvem sa vám do 24 hodín pre potvrdenie termínu fotenia.</p>
                 <button className="btn btn--outline" onClick={() => setSubmitted(false)}>
-                  Nová rezervácia
+                  Nová objednávka
                 </button>
               </div>
             ) : (
@@ -98,7 +102,7 @@ export default function BookingSection() {
 
                 <div className={styles.row}>
                   <div className="form-group">
-                    <label htmlFor="service">Typ služby *</label>
+                    <label htmlFor="service">Balík / typ fotenia *</label>
                     <select
                       id="service"
                       name="service"
@@ -107,8 +111,8 @@ export default function BookingSection() {
                       onChange={handleChange}
                       required
                     >
-                      <option value="">Vyberte službu...</option>
-                      {allServices.map((s) => (
+                      <option value="">Vyberte balík...</option>
+                      {serviceOptions.map((s) => (
                         <option key={s.id} value={s.name}>
                           {s.name}
                         </option>
@@ -135,14 +139,14 @@ export default function BookingSection() {
                     name="message"
                     className="form-control"
                     rows={3}
-                    placeholder="Opis problému, model vozidla..."
+                    placeholder="Kde chcete fotiť, aký štýl preferujete..."
                     value={form.message}
                     onChange={handleChange}
                   />
                 </div>
 
                 <button type="submit" className={`btn btn--primary ${styles.submit}`}>
-                  Odoslať rezerváciu
+                  Objednať fotenie
                 </button>
               </form>
             )}

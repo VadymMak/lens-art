@@ -131,3 +131,25 @@ export interface ImageMap {
   about: string;
   gallery: string[];
 }
+
+// Portfolio
+export interface PortfolioImage {
+  id: string;
+  src: string;
+  alt: string;
+}
+
+export interface PortfolioCategory {
+  id: string;
+  name: string;
+  images: PortfolioImage[];
+}
+
+// Pricing
+export interface PricingPlan {
+  id: string;
+  name: string;
+  price: string;
+  features: string[];
+  highlighted?: boolean;
+}

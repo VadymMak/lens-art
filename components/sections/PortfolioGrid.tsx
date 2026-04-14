@@ -2,35 +2,52 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { IMAGES } from '@/lib/constants';
+import { PORTFOLIO_CATEGORIES } from '@/lib/constants';
 import styles from './PortfolioGrid.module.css';
 
 export default function PortfolioGrid() {
+  const [activeTab, setActiveTab] = useState(PORTFOLIO_CATEGORIES[0]?.id ?? '');
   const [lightbox, setLightbox] = useState<string | null>(null);
 
-  const allImages = [IMAGES.hero, IMAGES.about, ...IMAGES.gallery];
+  const activeCategory = PORTFOLIO_CATEGORIES.find((c) => c.id === activeTab);
 
   return (
     <section id="portfolio" className={`section section--alt ${styles.section}`}>
       <div className="container">
         <div className="section-header">
           <h2 className="section-title">
-            Naše <span>Práce</span>
+            Naše <span>Portfolio</span>
           </h2>
-          <p className="section-subtitle">Výber z našich realizovaných projektov.</p>
+          <p className="section-subtitle">
+            Výber z realizovaných fotení — svadby, portréty, produkty a eventy.
+          </p>
         </div>
 
-        <div className={styles.grid}>
-          {allImages.map((src, i) => (
+        {/* Category tabs */}
+        <div className={styles.tabs}>
+          {PORTFOLIO_CATEGORIES.map((cat) => (
             <button
-              key={i}
-              className={styles.item}
-              onClick={() => setLightbox(src)}
-              aria-label={`Otvoriť obrázok ${i + 1}`}
+              key={cat.id}
+              className={`${styles.tab} ${activeTab === cat.id ? styles.tabActive : ''}`}
+              onClick={() => setActiveTab(cat.id)}
+            >
+              {cat.name}
+            </button>
+          ))}
+        </div>
+
+        {/* Photo grid */}
+        <div className={styles.grid}>
+          {activeCategory?.images.map((img, i) => (
+            <button
+              key={img.id}
+              className={`${styles.item} ${i === 0 ? styles.itemFeatured : ''}`}
+              onClick={() => setLightbox(img.src)}
+              aria-label={`Otvoriť ${img.alt}`}
             >
               <Image
-                src={src}
-                alt={`Portfolio ${i + 1}`}
+                src={img.src}
+                alt={img.alt}
                 fill
                 style={{ objectFit: 'cover' }}
                 sizes="(max-width: 768px) 100vw, 33vw"
