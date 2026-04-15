@@ -4,7 +4,12 @@
   inset-inline: 0;
   z-index: 100;
   height: var(--header-h);
-  transition: background var(--transition), backdrop-filter var(--transition), box-shadow var(--transition);
+  transition: background var(--transition), backdrop-filter var(--transition),
+    box-shadow var(--transition), transform 0.35s ease;
+}
+
+.hidden {
+  transform: translateY(-100%);
 }
 
 .scrolled {
