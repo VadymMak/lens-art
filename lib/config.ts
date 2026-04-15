@@ -5,8 +5,8 @@ export const SITE_CONFIG: SiteConfig = {
   tagline: 'Professional Photography',
   templateType: 'portfolio',
   palette: {
-    primary: '#E5E5E5',
-    primaryDark: '#CCCCCC',
+    primary: '#FFFFFF',
+    primaryDark: '#E5E5E5',
     primaryLight: '#F5F5F5',
     bg: '#0A0A0A',
     bgAlt: '#141414',

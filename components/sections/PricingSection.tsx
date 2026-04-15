@@ -35,7 +35,7 @@ export default function PricingSection() {
               </ul>
               <a
                 href="#booking"
-                className={`btn ${plan.highlighted ? 'btn--primary' : 'btn--outline'} ${styles.cta}`}
+                className={`btn btn--primary ${styles.cta}`}
               >
                 Objednať
               </a>
