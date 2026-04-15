@@ -1,25 +1,27 @@
 import { PRICING_PLANS } from '@/lib/constants';
+import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
 import styles from './PricingSection.module.css';
 
 export default function PricingSection() {
   return (
     <section id="cennik" className={`section ${styles.section}`}>
       <div className="container">
-        <div className="section-header reveal">
+        <ScrollReveal animation="fadeUp" className="section-header">
           <h2 className="section-title">
             Naše <span>Ceny</span>
           </h2>
           <p className="section-subtitle">
             Transparentné ceny bez skrytých poplatkov. Retuš a online galéria vždy v cene.
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className={styles.grid}>
           {PRICING_PLANS.map((plan, i) => (
-            <div
+            <ScrollReveal
               key={plan.id}
-              className={`card ${styles.card} ${plan.highlighted ? styles.cardHighlighted : ''} reveal`}
-              style={{ transitionDelay: `${i * 0.12}s` }}
+              animation="fadeUp"
+              delay={i * 150}
+              className={`card ${styles.card} ${plan.highlighted ? styles.cardHighlighted : ''}`}
             >
               {plan.highlighted && (
                 <span className={styles.badge}>Najpopulárnejší</span>
@@ -37,7 +39,7 @@ export default function PricingSection() {
               <a href="#booking" className={`btn btn--primary ${styles.cta}`}>
                 Objednať
               </a>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

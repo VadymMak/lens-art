@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { PORTFOLIO_CATEGORIES } from '@/lib/constants';
+import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
 import styles from './PortfolioGrid.module.css';
 
 export default function PortfolioGrid() {
@@ -13,17 +14,17 @@ export default function PortfolioGrid() {
   return (
     <section id="portfolio" className={`section section--alt ${styles.section}`}>
       <div className="container">
-        <div className="section-header reveal">
+        <ScrollReveal animation="fadeUp" className="section-header">
           <h2 className="section-title">
             Naše <span>Portfolio</span>
           </h2>
           <p className="section-subtitle">
             Výber z realizovaných fotení — svadby, portréty, produkty a eventy.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Category tabs */}
-        <div className={`${styles.tabs} reveal reveal-delay-1`}>
+        <ScrollReveal animation="fadeUp" delay={100} className={styles.tabs}>
           {PORTFOLIO_CATEGORIES.map((cat) => (
             <button
               key={cat.id}
@@ -33,10 +34,10 @@ export default function PortfolioGrid() {
               {cat.name}
             </button>
           ))}
-        </div>
+        </ScrollReveal>
 
         {/* Photo grid */}
-        <div className={`${styles.grid} reveal reveal-delay-2`}>
+        <ScrollReveal animation="fadeUp" delay={200} className={styles.grid}>
           {activeCategory?.images.map((img, i) => (
             <button
               key={img.id}
@@ -56,7 +57,7 @@ export default function PortfolioGrid() {
               </div>
             </button>
           ))}
-        </div>
+        </ScrollReveal>
       </div>
 
       {/* Lightbox */}

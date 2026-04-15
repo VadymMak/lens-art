@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { SERVICE_CATEGORIES, PRICING_PLANS } from '@/lib/constants';
+import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
 import styles from './BookingSection.module.css';
 
 interface FormData {
@@ -43,7 +44,7 @@ export default function BookingSection() {
     <section id="booking" className={`section section--alt ${styles.section}`}>
       <div className="container">
         <div className={styles.layout}>
-          <div className={`${styles.info} reveal`}>
+          <ScrollReveal animation="fadeLeft" className={styles.info}>
             <h2 className="section-title">
               Objednajte si <span>fotenie</span>
             </h2>
@@ -56,9 +57,9 @@ export default function BookingSection() {
               <li>✅ Retuš vždy v cene</li>
               <li>✅ Flexibilné termíny aj lokácie</li>
             </ul>
-          </div>
+          </ScrollReveal>
 
-          <div className={`${styles.formWrap} reveal reveal-delay-2`}>
+          <ScrollReveal animation="fadeRight" delay={150} className={styles.formWrap}>
             {submitted ? (
               <div className="success-message">
                 <div className="success-icon">✅</div>
@@ -149,7 +150,7 @@ export default function BookingSection() {
                 </button>
               </form>
             )}
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

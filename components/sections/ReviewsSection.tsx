@@ -1,26 +1,23 @@
 import { REVIEWS } from '@/lib/constants';
+import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
 import styles from './ReviewsSection.module.css';
 
 export default function ReviewsSection() {
   return (
     <section id="reviews" className={`section ${styles.section}`}>
       <div className="container">
-        <div className="section-header reveal">
+        <ScrollReveal animation="fadeUp" className="section-header">
           <h2 className="section-title">
             Čo hovoria <span>zákazníci</span>
           </h2>
           <p className="section-subtitle">
             Spokojnosť zákazníkov je našou najväčšou odmenou.
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className={styles.grid}>
           {REVIEWS.map((review, i) => (
-            <div
-              key={review.id}
-              className={`card ${styles.card} reveal`}
-              style={{ transitionDelay: `${i * 0.1}s` }}
-            >
+            <ScrollReveal key={review.id} animation="fadeUp" delay={i * 150} className={`card ${styles.card}`}>
               <div className="stars">{'★'.repeat(review.rating)}</div>
               <p className={styles.text}>&ldquo;{review.text}&rdquo;</p>
               <div className={styles.footer}>
@@ -30,7 +27,7 @@ export default function ReviewsSection() {
                   <div className={styles.detail}>{review.detail}</div>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
