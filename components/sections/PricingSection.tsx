@@ -1,14 +1,9 @@
-'use client';
-
 import { PRICING_PLANS } from '@/lib/constants';
-import { useReveal } from '@/hooks/useReveal';
 import styles from './PricingSection.module.css';
 
 export default function PricingSection() {
-  const ref = useReveal();
-
   return (
-    <section id="cennik" className={`section ${styles.section}`} ref={ref}>
+    <section id="cennik" className={`section ${styles.section}`}>
       <div className="container">
         <div className="section-header reveal">
           <h2 className="section-title">

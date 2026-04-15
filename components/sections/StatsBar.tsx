@@ -1,16 +1,11 @@
-'use client';
-
 import { STATS } from '@/lib/constants';
-import { useReveal } from '@/hooks/useReveal';
 import styles from './StatsBar.module.css';
 
 const DELAYS = ['reveal-delay-1', 'reveal-delay-2', 'reveal-delay-3', 'reveal-delay-4'];
 
 export default function StatsBar() {
-  const ref = useReveal();
-
   return (
-    <section className={styles.bar} ref={ref}>
+    <section className={styles.bar}>
       <div className={`container ${styles.grid}`}>
         {STATS.map((stat, i) => (
           <div key={stat.label} className={`${styles.item} reveal ${DELAYS[i] ?? 'reveal-delay-4'}`}>

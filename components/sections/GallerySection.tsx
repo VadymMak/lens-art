@@ -1,15 +1,10 @@
-'use client';
-
 import Image from 'next/image';
 import { IMAGES } from '@/lib/constants';
-import { useReveal } from '@/hooks/useReveal';
 import styles from './GallerySection.module.css';
 
 export default function GallerySection() {
-  const ref = useReveal();
-
   return (
-    <section id="gallery" className={`section section--alt ${styles.section}`} ref={ref}>
+    <section id="gallery" className={`section section--alt ${styles.section}`}>
       <div className="container">
         <div className="section-header reveal">
           <h2 className="section-title">

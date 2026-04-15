@@ -1,4 +1,5 @@
 import { SITE_CONFIG } from '@/lib/config';
+import RevealProvider from '@/components/RevealProvider';
 import Header from '@/components/sections/Header';
 import HeroSection from '@/components/sections/HeroSection';
 import StatsBar from '@/components/sections/StatsBar';
@@ -22,7 +23,7 @@ export default function Home() {
   const { templateType } = SITE_CONFIG;
 
   return (
-    <>
+    <RevealProvider>
       <Header />
       <main>
         <HeroSection />
@@ -46,6 +47,6 @@ export default function Home() {
       {/* Floating widgets */}
       <WhatsAppButton />
       <ChatWidget />
-    </>
+    </RevealProvider>
   );
 }

@@ -2,17 +2,14 @@
 
 import { useState } from 'react';
 import { MENU_CATEGORIES } from '@/lib/constants';
-import { useReveal } from '@/hooks/useReveal';
 import styles from './MenuSection.module.css';
 
 export default function MenuSection() {
   const [activeTab, setActiveTab] = useState(MENU_CATEGORIES[0]?.id ?? '');
-  const ref = useReveal();
-
   const activeCategory = MENU_CATEGORIES.find((c) => c.id === activeTab);
 
   return (
-    <section id="menu" className={`section section--alt ${styles.section}`} ref={ref}>
+    <section id="menu" className={`section section--alt ${styles.section}`}>
       <div className="container">
         <div className="section-header reveal">
           <h2 className="section-title">

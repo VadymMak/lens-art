@@ -1,14 +1,9 @@
-'use client';
-
 import { WHY_ITEMS } from '@/lib/constants';
-import { useReveal } from '@/hooks/useReveal';
 import styles from './WhyUsSection.module.css';
 
 export default function WhyUsSection() {
-  const ref = useReveal();
-
   return (
-    <section id="why-us" className={`section ${styles.section}`} ref={ref}>
+    <section id="why-us" className={`section ${styles.section}`}>
       <div className="container">
         <div className="section-header reveal">
           <h2 className="section-title">

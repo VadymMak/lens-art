@@ -3,18 +3,15 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { PORTFOLIO_CATEGORIES } from '@/lib/constants';
-import { useReveal } from '@/hooks/useReveal';
 import styles from './PortfolioGrid.module.css';
 
 export default function PortfolioGrid() {
   const [activeTab, setActiveTab] = useState(PORTFOLIO_CATEGORIES[0]?.id ?? '');
   const [lightbox, setLightbox] = useState<string | null>(null);
-  const ref = useReveal();
-
   const activeCategory = PORTFOLIO_CATEGORIES.find((c) => c.id === activeTab);
 
   return (
-    <section id="portfolio" className={`section section--alt ${styles.section}`} ref={ref}>
+    <section id="portfolio" className={`section section--alt ${styles.section}`}>
       <div className="container">
         <div className="section-header reveal">
           <h2 className="section-title">

@@ -1,14 +1,9 @@
-'use client';
-
 import { REVIEWS } from '@/lib/constants';
-import { useReveal } from '@/hooks/useReveal';
 import styles from './ReviewsSection.module.css';
 
 export default function ReviewsSection() {
-  const ref = useReveal();
-
   return (
-    <section id="reviews" className={`section ${styles.section}`} ref={ref}>
+    <section id="reviews" className={`section ${styles.section}`}>
       <div className="container">
         <div className="section-header reveal">
           <h2 className="section-title">

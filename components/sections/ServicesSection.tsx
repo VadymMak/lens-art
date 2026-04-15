@@ -2,17 +2,14 @@
 
 import { useState } from 'react';
 import { SERVICE_CATEGORIES } from '@/lib/constants';
-import { useReveal } from '@/hooks/useReveal';
 import styles from './ServicesSection.module.css';
 
 export default function ServicesSection() {
   const [activeTab, setActiveTab] = useState(SERVICE_CATEGORIES[0]?.id ?? '');
-  const ref = useReveal();
-
   const activeCategory = SERVICE_CATEGORIES.find((c) => c.id === activeTab);
 
   return (
-    <section id="services" className={`section section--alt ${styles.section}`} ref={ref}>
+    <section id="services" className={`section section--alt ${styles.section}`}>
       <div className="container">
         <div className="section-header reveal">
           <h2 className="section-title">

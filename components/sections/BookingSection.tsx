@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { SERVICE_CATEGORIES, PRICING_PLANS } from '@/lib/constants';
-import { useReveal } from '@/hooks/useReveal';
 import styles from './BookingSection.module.css';
 
 interface FormData {
@@ -22,8 +21,6 @@ export default function BookingSection() {
     message: '',
   });
   const [submitted, setSubmitted] = useState(false);
-  const ref = useReveal();
-
   const allServices = SERVICE_CATEGORIES.flatMap((cat) => cat.items);
   const serviceOptions =
     allServices.length > 0
@@ -43,7 +40,7 @@ export default function BookingSection() {
   };
 
   return (
-    <section id="booking" className={`section section--alt ${styles.section}`} ref={ref}>
+    <section id="booking" className={`section section--alt ${styles.section}`}>
       <div className="container">
         <div className={styles.layout}>
           <div className={`${styles.info} reveal`}>

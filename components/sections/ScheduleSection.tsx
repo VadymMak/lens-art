@@ -1,14 +1,9 @@
-'use client';
-
 import { SCHEDULE } from '@/lib/constants';
-import { useReveal } from '@/hooks/useReveal';
 import styles from './ScheduleSection.module.css';
 
 export default function ScheduleSection() {
-  const ref = useReveal();
-
   return (
-    <section id="schedule" className={`section section--alt ${styles.section}`} ref={ref}>
+    <section id="schedule" className={`section section--alt ${styles.section}`}>
       <div className="container">
         <div className="section-header reveal">
           <h2 className="section-title">

@@ -1,15 +1,10 @@
-'use client';
-
 import { CONTACT_ITEMS, FAQ_ITEMS } from '@/lib/constants';
-import { useReveal } from '@/hooks/useReveal';
 import styles from './ContactSection.module.css';
 import FaqAccordion from './FaqAccordion';
 
 export default function ContactSection() {
-  const ref = useReveal();
-
   return (
-    <section id="contact" className={`section ${styles.section}`} ref={ref}>
+    <section id="contact" className={`section ${styles.section}`}>
       <div className="container">
         <div className="section-header reveal">
           <h2 className="section-title">
