@@ -168,7 +168,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn--outline:hover {
-  background: rgba(200, 169, 126, 0.1);
+  background: color-mix(in srgb, var(--primary) 10%, transparent);
   border-color: var(--primary);
   color: var(--primary);
 }

@@ -71,7 +71,7 @@
 
 .zoomIcon {
   font-size: 2rem;
-  color: #fff;
+  color: var(--text);
   opacity: 0;
   transition: opacity var(--transition);
   line-height: 1;
@@ -105,7 +105,7 @@
   right: 1.5rem;
   background: none;
   border: none;
-  color: #fff;
+  color: var(--text);
   font-size: 1.75rem;
   z-index: 201;
   cursor: pointer;

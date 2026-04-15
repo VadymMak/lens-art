@@ -26,7 +26,7 @@
 
 .label {
   font-size: var(--font-size-sm);
-  color: rgba(0, 0, 0, 0.65);
+  color: color-mix(in srgb, var(--bg) 65%, transparent);
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }

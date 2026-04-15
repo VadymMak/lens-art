@@ -51,7 +51,7 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
+  background: color-mix(in srgb, var(--text) 20%, transparent);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -67,7 +67,7 @@
 
 .status {
   font-size: var(--font-size-xs);
-  color: rgba(0, 0, 0, 0.6);
+  color: color-mix(in srgb, var(--bg) 60%, transparent);
 }
 
 .messages {
