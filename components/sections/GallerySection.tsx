@@ -1,12 +1,17 @@
+'use client';
+
 import Image from 'next/image';
 import { IMAGES } from '@/lib/constants';
+import { useReveal } from '@/hooks/useReveal';
 import styles from './GallerySection.module.css';
 
 export default function GallerySection() {
+  const ref = useReveal();
+
   return (
-    <section id="gallery" className={`section section--alt ${styles.section}`}>
+    <section id="gallery" className={`section section--alt ${styles.section}`} ref={ref}>
       <div className="container">
-        <div className="section-header">
+        <div className="section-header reveal">
           <h2 className="section-title">
             Naša <span>Galéria</span>
           </h2>
@@ -15,7 +20,11 @@ export default function GallerySection() {
 
         <div className={styles.grid}>
           {IMAGES.gallery.map((src, i) => (
-            <div key={i} className={`${styles.item} ${i === 0 ? styles.featured : ''}`}>
+            <div
+              key={i}
+              className={`${styles.item} ${i === 0 ? styles.featured : ''} reveal`}
+              style={{ transitionDelay: `${i * 0.08}s` }}
+            >
               <Image
                 src={src}
                 alt={`Galéria ${i + 1}`}

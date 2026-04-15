@@ -1,33 +1,16 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
 import { WHY_ITEMS } from '@/lib/constants';
+import { useReveal } from '@/hooks/useReveal';
 import styles from './WhyUsSection.module.css';
 
 export default function WhyUsSection() {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    const items = ref.current?.querySelectorAll('.reveal') ?? [];
-    items.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
+  const ref = useReveal();
 
   return (
     <section id="why-us" className={`section ${styles.section}`} ref={ref}>
       <div className="container">
-        <div className="section-header">
+        <div className="section-header reveal">
           <h2 className="section-title">
             Prečo <span>nás</span>
           </h2>
