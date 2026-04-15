@@ -2,17 +2,19 @@
 
 import { useState } from 'react';
 import { SERVICE_CATEGORIES } from '@/lib/constants';
+import { useReveal } from '@/hooks/useReveal';
 import styles from './ServicesSection.module.css';
 
 export default function ServicesSection() {
   const [activeTab, setActiveTab] = useState(SERVICE_CATEGORIES[0]?.id ?? '');
+  const ref = useReveal();
 
   const activeCategory = SERVICE_CATEGORIES.find((c) => c.id === activeTab);
 
   return (
-    <section id="services" className={`section section--alt ${styles.section}`}>
+    <section id="services" className={`section section--alt ${styles.section}`} ref={ref}>
       <div className="container">
-        <div className="section-header">
+        <div className="section-header reveal">
           <h2 className="section-title">
             Naše <span>Služby</span>
           </h2>
@@ -22,7 +24,7 @@ export default function ServicesSection() {
         </div>
 
         {/* Tabs */}
-        <div className={styles.tabs}>
+        <div className={`${styles.tabs} reveal reveal-delay-1`}>
           {SERVICE_CATEGORIES.map((cat) => (
             <button
               key={cat.id}
@@ -35,7 +37,7 @@ export default function ServicesSection() {
         </div>
 
         {/* Cards */}
-        <div className={styles.grid}>
+        <div className={`${styles.grid} reveal reveal-delay-2`}>
           {activeCategory?.items.map((item) => (
             <div key={item.id} className={`card ${styles.card}`}>
               <div className={styles.icon}>{item.icon}</div>
