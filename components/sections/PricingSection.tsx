@@ -15,33 +15,34 @@ export default function PricingSection() {
           </p>
         </ScrollReveal>
 
-        <div className={styles.grid}>
-          {PRICING_PLANS.map((plan, i) => (
-            <ScrollReveal
-              key={plan.id}
-              animation="fadeUp"
-              delay={i * 150}
-              className={`card ${styles.card} ${plan.highlighted ? styles.cardHighlighted : ''}`}
-            >
-              {plan.highlighted && (
-                <span className={styles.badge}>Najpopulárnejší</span>
-              )}
-              <h3 className={styles.name}>{plan.name}</h3>
-              <div className={styles.price}>{plan.price}</div>
-              <ul className={styles.features}>
-                {plan.features.map((feature, j) => (
-                  <li key={j} className={styles.feature}>
-                    <span className={styles.check}>✓</span>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              <a href="#booking" className={`btn btn--primary ${styles.cta}`}>
-                Objednať
-              </a>
-            </ScrollReveal>
-          ))}
-        </div>
+        {/* Wrap entire grid in one ScrollReveal so all 3 cards animate together */}
+        <ScrollReveal animation="fadeUp" delay={100}>
+          <div className={styles.grid}>
+            {PRICING_PLANS.map((plan) => (
+              <div
+                key={plan.id}
+                className={`card ${styles.card} ${plan.highlighted ? styles.cardHighlighted : ''}`}
+              >
+                {plan.highlighted && (
+                  <span className={styles.badge}>Najpopulárnejší</span>
+                )}
+                <h3 className={styles.name}>{plan.name}</h3>
+                <div className={styles.price}>{plan.price}</div>
+                <ul className={styles.features}>
+                  {plan.features.map((feature, j) => (
+                    <li key={j} className={styles.feature}>
+                      <span className={styles.check}>✓</span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <a href="#booking" className={`btn btn--primary ${styles.cta}`}>
+                  Objednať
+                </a>
+              </div>
+            ))}
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

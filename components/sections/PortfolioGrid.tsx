@@ -36,8 +36,8 @@ export default function PortfolioGrid() {
           ))}
         </ScrollReveal>
 
-        {/* Photo grid */}
-        <ScrollReveal animation="fadeUp" delay={200} className={styles.grid}>
+        {/* Photo grid — no ScrollReveal: re-renders on tab change must show images immediately */}
+        <div className={styles.grid}>
           {activeCategory?.images.map((img, i) => (
             <button
               key={img.id}
@@ -57,7 +57,7 @@ export default function PortfolioGrid() {
               </div>
             </button>
           ))}
-        </ScrollReveal>
+        </div>
       </div>
 
       {/* Lightbox */}

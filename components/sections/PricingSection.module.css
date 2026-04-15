@@ -18,7 +18,8 @@
 }
 
 .cardHighlighted {
-  border-color: var(--primary);
+  border: 2px solid var(--primary);
+  background: var(--card-hover);
   box-shadow: 0 0 0 1px var(--primary), 0 12px 32px var(--shadow-md);
   transform: translateY(-6px);
 }
@@ -70,7 +71,7 @@
   align-items: center;
   gap: 0.5rem;
   font-size: var(--font-size-sm);
-  color: var(--text-muted);
+  color: var(--text-dim);
 }
 
 .check {

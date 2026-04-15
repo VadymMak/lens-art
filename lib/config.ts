@@ -13,7 +13,7 @@ export const SITE_CONFIG: SiteConfig = {
     card: '#1A1A1A',
     cardHover: '#222222',
     text: '#F5F5F5',
-    textMuted: '#888888',
+    textMuted: '#9A9A9A',
     border: 'rgba(255,255,255,0.06)',
     textOnPrimary: '#0A0A0A',
   },

@@ -18,9 +18,9 @@
   z-index: 1;
   background: linear-gradient(
     to right,
-    var(--overlay-2xl) 0%,
-    var(--overlay-lg) 60%,
-    var(--overlay-sm) 100%
+    var(--overlay-xl) 0%,
+    var(--overlay-md) 60%,
+    transparent 100%
   );
 }
 
