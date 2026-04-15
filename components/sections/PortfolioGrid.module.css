@@ -58,7 +58,7 @@
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0);
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -66,7 +66,7 @@
 }
 
 .item:hover .overlay {
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--overlay-xl);
 }
 
 .zoomIcon {
@@ -86,7 +86,7 @@
   position: fixed;
   inset: 0;
   z-index: 200;
-  background: rgba(0, 0, 0, 0.92);
+  background: var(--overlay-3xl);
   display: flex;
   align-items: center;
   justify-content: center;
