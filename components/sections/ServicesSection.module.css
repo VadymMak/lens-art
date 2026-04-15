@@ -30,7 +30,7 @@
 .tabActive {
   background: var(--primary);
   border-color: var(--primary);
-  color: var(--bg);
+  color: var(--text-on-primary);
 }
 
 .grid {

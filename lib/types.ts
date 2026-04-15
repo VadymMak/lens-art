@@ -14,6 +14,7 @@ export interface SiteConfig {
     text: string;          // main text
     textMuted: string;     // secondary text
     border: string;        // border color
+    textOnPrimary: string; // text color on primary-colored backgrounds
   };
   headingFont: 'oswald' | 'playfair' | 'cormorant' | 'inter';
   whatsappNumber: string;

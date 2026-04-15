@@ -8,7 +8,7 @@
 }
 
 .scrolled {
-  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  background: var(--header-bg);
   backdrop-filter: blur(12px);
   box-shadow: 0 1px 0 var(--border);
 }

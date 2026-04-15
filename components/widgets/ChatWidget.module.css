@@ -51,7 +51,7 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: color-mix(in srgb, var(--text) 20%, transparent);
+  background: var(--text-on-primary-faint);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,12 +62,12 @@
 .botName {
   font-weight: 700;
   font-size: var(--font-size-sm);
-  color: var(--bg);
+  color: var(--text-on-primary);
 }
 
 .status {
   font-size: var(--font-size-xs);
-  color: color-mix(in srgb, var(--bg) 60%, transparent);
+  color: var(--text-on-primary-dim);
 }
 
 .messages {
@@ -98,7 +98,7 @@
 
 .msgUser {
   background: var(--primary);
-  color: var(--bg);
+  color: var(--text-on-primary);
   border-bottom-right-radius: 2px;
   align-self: flex-end;
 }
@@ -123,7 +123,7 @@
 
 .qBtn:hover {
   background: var(--primary);
-  color: var(--bg);
+  color: var(--text-on-primary);
 }
 
 .inputRow {
@@ -162,7 +162,7 @@
   border-radius: 50%;
   background: var(--primary);
   border: none;
-  color: var(--bg);
+  color: var(--text-on-primary);
   font-size: 0.9rem;
   display: flex;
   align-items: center;

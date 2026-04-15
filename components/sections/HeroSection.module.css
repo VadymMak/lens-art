@@ -51,7 +51,7 @@
 
 .sub {
   font-size: var(--font-size-lg);
-  color: color-mix(in srgb, var(--text) 80%, transparent);
+  color: var(--text-dim);
   max-width: 520px;
   line-height: 1.6;
   margin-bottom: var(--spacing-md);

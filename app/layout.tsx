@@ -69,6 +69,7 @@ export default function RootLayout({
     '--text': palette.text,
     '--text-muted': palette.textMuted,
     '--border': palette.border,
+    '--text-on-primary': palette.textOnPrimary,
     '--heading-font': fontVarMap[headingFont] ?? fontVarMap.oswald,
   };
 
