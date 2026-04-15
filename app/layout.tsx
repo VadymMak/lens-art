@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Oswald, Playfair_Display, Cormorant_Garamond, Inter } from 'next/font/google';
 import './globals.css';
 import { SITE_CONFIG } from '@/lib/config';
+import RevealObserver from '@/components/RevealObserver';
 
 // Load all 4 heading font options
 const oswald = Oswald({
@@ -84,7 +85,10 @@ export default function RootLayout({
 
   return (
     <html lang="sk" className={fontVariables} style={cssVars}>
-      <body className={bodyClass}>{children}</body>
+      <body className={bodyClass}>
+        {children}
+        <RevealObserver />
+      </body>
     </html>
   );
 }
