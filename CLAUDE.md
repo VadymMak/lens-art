@@ -1,19 +1,19 @@
-# CLAUDE.md — VendShop Template
+# MANDATORY: Use Brain MCP for EVERY request
 
-## Это шаблон! Не конечный сайт.
-При создании нового сайта из этого шаблона:
-1. Поменяй SITE_CONFIG в lib/config.ts (название, палитра, шрифт)
-2. Поменяй данные в lib/constants.ts (услуги, отзывы, контакты)
-3. Замени фото в public/images/
-4. Готово!
+⚠️ RULE: You MUST call brain build_context_for_query BEFORE responding to ANY message.
+No exceptions. Even for simple questions.
 
-## Стек: Next.js 15, TypeScript, pure CSS, pnpm
-## Команды: pnpm dev / pnpm build / npx tsc --noEmit
+## Required workflow for EVERY response:
+1. FIRST: Call `build_context_for_query` with the user's question
+2. THEN: Use returned context to answer
 
-## Архитектура
-- lib/config.ts — SITE_CONFIG: название, палитра, шрифт, контакты, template type
-- lib/constants.ts — данные: услуги, отзывы, FAQ итд
-- lib/types.ts — все TypeScript типы
-- app/globals.css — CSS variables подставляются из SITE_CONFIG
-- components/ — универсальные секции
-- Все секции читают цвета из CSS variables (не хардкод)
+## Brain commands:
+- `build context for query "question"` — ALWAYS call this first
+- `search project files for "keyword"` — search codebase
+- `get file content path/to/file` — read specific file
+- `get file dependencies for path/to/file` — show imports
+
+## IMPORTANT:
+- Never skip Brain context step
+- Never answer directly without calling Brain first
+- Brain returns only relevant 4K tokens — fast and cheap
